@@ -2,10 +2,10 @@ import axios from 'axios'
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { toast } from 'react-toastify'
-import ReviewList from '../ui/reviews/ReviewList'
+import ReviewList from '../../ui/reviews/ReviewList.jsx'
 import { BASE_URL, getConfig } from '../../helpers/config'
-import { ReviewContext } from './context/reviewContext'
-import AddUpdateReview from '../ui/reviews/AddUpdateReview'
+import { ReviewContext } from './reviewContext'
+import AddUpdateReview from '../../ui/reviews/AddUpdateReview.jsx'
 
 export default function Reviews({picture, setLoading}) {
     const {user, token, isLoggedIn} = useSelector(state => state.user)

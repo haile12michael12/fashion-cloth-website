@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { Rating } from 'react-simple-star-rating'
-import { ReviewContext } from '../../features/reviews/context/reviewContext'
+import { ReviewContext } from '../../features/reviews/reviewContext'
 import { useSelector } from 'react-redux'
 
 export default function ReviewListItem({review}) {

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { ReviewContext } from '../../features/reviews/context/reviewContext'
+import { ReviewContext } from '../../features/reviews/reviewContext'
 import { Rating } from 'react-simple-star-rating'
 
 export default function AddUpdateReview() {

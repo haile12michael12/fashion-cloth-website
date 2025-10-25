@@ -12,20 +12,20 @@ import PageNotFound from "./pages/PageNotFound"
 
 function App() {
   return (
-    &lt;BrowserRouter&gt;
-      &lt;Header /&gt;
-      &lt;Routes&gt;
-        &lt;Route path="/" element={&lt;Home /&gt;} /&gt;
-        &lt;Route path="/register" element={&lt;Register /&gt;} /&gt;
-        &lt;Route path="/login" element={&lt;Login /&gt;} /&gt;
-        &lt;Route path="/upload" element={&lt;Upload /&gt;} /&gt;
-        &lt;Route path="/profile" element={&lt;Profile /&gt;} /&gt;
-        &lt;Route path="/picture/:id" element={&lt;Picture /&gt;} /&gt;
-        &lt;Route path="/cart" element={&lt;Cart /&gt;} /&gt;
-        &lt;Route path="/checkout" element={&lt;Checkout /&gt;} /&gt;
-        &lt;Route path="*" element={&lt;PageNotFound /&gt;} /&gt;
-      &lt;/Routes&gt;
-    &lt;/BrowserRouter&gt;
+    <BrowserRouter>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/upload" element={<Upload />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/picture/:id" element={<Picture />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/checkout" element={<Checkout />} />
+        <Route path="*" element={<PageNotFound />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 

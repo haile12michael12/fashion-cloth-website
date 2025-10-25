@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react'
-import useCategories from '../custom/useCategories'
+import useCategories from '../components/custom/useCategories'
 import { useNavigate } from 'react-router-dom'
 import { FileUploader } from "react-drag-drop-files"
 import axios from 'axios'
 import { BASE_URL, getConfig } from '../../helpers/config'
 import { toast } from 'react-toastify'
 import Spinner from '../layouts/Spinner'
-import useValidation from '../custom/useValidation'
+import useValidation from '../components/custom/useValidation'
 import { useDispatch, useSelector } from 'react-redux'
 import { setCurrentUser } from '../../redux/slices/userSlice'
-import useTitle from '../custom/useTitle'
+import useTitle from '../components/custom/useTitle'
 
 
 export default function Upload() {
