@@ -12,11 +12,22 @@ import {
 import storage from "redux-persist/lib/storage"
 import userReducer from "../slices/userSlice"
 import cartReducer from "../slices/cartSlice"
+// AI Feature Reducers
+import aiStylistReducer from "../slices/ai/stylistSlice"
+import tryOnReducer from "../slices/ai/tryOnSlice"
+import lookBookReducer from "../slices/ai/lookBookSlice"
+import moodBoardReducer from "../slices/ai/moodBoardSlice"
+import quizReducer from "../slices/ai/quizSlice"
 
 //combining all the reducers
 const rootReducer = combineReducers({
     user: userReducer,
-    cart: cartReducer
+    cart: cartReducer,
+    aiStylist: aiStylistReducer,
+    tryOn: tryOnReducer,
+    lookBook: lookBookReducer,
+    moodBoard: moodBoardReducer,
+    quiz: quizReducer
 })
 
 //config the persist

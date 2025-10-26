@@ -7,6 +7,7 @@ import useCategories from '../features/hooks/useCategories'
 import Extensions from '../ui/Extensions'
 import { Link } from 'react-router-dom'
 import useTitle from '../features/hooks/useTitle'
+import SEO from '../components/SEO'
 
 export default function Home() {
     const [pictures, setPictures] = useState([])
@@ -65,6 +66,11 @@ export default function Home() {
 
     return (
         <div className='container'>
+            <SEO 
+                title="Fashion Cloth Website - Latest Fashion Trends"
+                description="Discover the latest fashion trends and clothing collections at Fashion Cloth Website. Shop for stylish apparel and accessories."
+                keywords="fashion, clothing, apparel, trends, style, shopping, online store"
+            />
             {
                 loading ?
                     <Spinner />

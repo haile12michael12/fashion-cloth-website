@@ -6,6 +6,10 @@ import { BASE_URL, getConfig } from '../helpers/config'
 import axios from 'axios'
 import { toast } from 'react-toastify'
 import SearchBox from '../features/search/SearchBox'
+import LanguageSwitcher from '../components/LanguageSwitcher'
+import { useTranslation } from 'react-i18next'
+import ThemeToggle from '../components/ThemeToggle'
+import { useTheme } from '../contexts/ThemeContext'
 
 export default function Header() {
     const { isLoggedIn, user, token} = useSelector(state => state.user)
@@ -13,6 +17,8 @@ export default function Header() {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const location = useLocation()
+    const { t } = useTranslation()
+    const { theme } = useTheme()
 
     useEffect(() => {
         const getLoggedInUser = async() => {
@@ -50,7 +56,7 @@ export default function Header() {
 
     return (
         <>
-            <nav className="navbar navbar-expand-lg bg-body-tertiary">
+            <nav className={`navbar navbar-expand-lg ${theme === 'dark' ? 'navbar-dark bg-dark' : 'bg-body-tertiary'}`}>
                 <div className="container-fluid">
                     <Link className="navbar-brand" to="/">React Stock Images</Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -62,19 +68,19 @@ export default function Header() {
                                 <Link 
                                     className={`nav-link ${location.pathname === '/' ? 'active' : ''}`} 
                                     aria-current="page" to="/">
-                                <i className="bi bi-house"></i> Home</Link>
+                                <i className="bi bi-house"></i> {t('home')}</Link>
                             </li>
                             <li className="nav-item">
                                 <Link 
                                     className={`nav-link ${location.pathname === '/upload' ? 'active' : ''}`}
                                     to="/upload">
-                                <i className="bi bi-upload"></i> Upload</Link>
+                                <i className="bi bi-upload"></i> {t('upload')}</Link>
                             </li>
                             <li className="nav-item">
                                 <Link 
                                     className={`nav-link ${location.pathname === '/cart' ? 'active' : ''}`}
                                     to="/cart">
-                                <i className="bi bi-cart"></i> ({ cartItems.length })</Link>
+                                <i className="bi bi-cart"></i> ({ cartItems.length }) {t('cart')}</Link>
                             </li>
                             {
                                 isLoggedIn ?
@@ -86,9 +92,9 @@ export default function Header() {
                                             <i className="bi bi-person"></i> { user?.name } </Link>
                                         </li>
                                         <li className="nav-item">
-                                            <button className="nav-link border-0 bg-light"
+                                            <button className="nav-link border-0 bg-transparent text-white"
                                                 onClick={() => logoutUser()}>
-                                            <i className="bi bi-person-fill-down"></i> Logout</button>
+                                            <i className="bi bi-person-fill-down"></i> {t('logout')}</button>
                                         </li>
                                     </>
                                 :
@@ -97,13 +103,13 @@ export default function Header() {
                                             <Link 
                                                 className={`nav-link ${location.pathname === '/register' ? 'active' : ''}`}
                                                 to="/register">
-                                            <i className="bi bi-person-add"></i> Register</Link>
+                                            <i className="bi bi-person-add"></i> {t('register')}</Link>
                                         </li>
                                         <li className="nav-item">
                                             <Link 
                                                 className={`nav-link ${location.pathname === '/login' ? 'active' : ''}`}
                                                 to="/login">
-                                            <i className="bi bi-person-fill-up"></i> Login</Link>
+                                            <i className="bi bi-person-fill-up"></i> {t('login')}</Link>
                                         </li>
                                     </>
                             }
@@ -112,8 +118,14 @@ export default function Header() {
                             <li className='nav-item'>
                                 <Link className="nav-link" data-bs-toggle="offcanvas" 
                                     to="#offcanvasExample" role="button" aria-controls="offcanvasExample">
-                                    <i className="bi bi-search"></i>
+                                    <i className="bi bi-search"></i> {t('search')}
                                 </Link>
+                            </li>
+                            <li className='nav-item ms-2'>
+                                <LanguageSwitcher />
+                            </li>
+                            <li className='nav-item ms-2'>
+                                <ThemeToggle />
                             </li>
                         </ul>
                     </div>

@@ -8,6 +8,7 @@ import { toast } from 'react-toastify'
 import { BASE_URL } from '../../helpers/config'
 import { setCurrentUser, setLoggedInOut, setToken } from '../../redux/slices/userSlice'
 import useTitle from '../../features/hooks/useTitle'
+import SEO from '../../components/SEO'
 
 export default function Login() {
   const [user, setUser] = useState({
@@ -59,6 +60,11 @@ export default function Login() {
 
   return (
     <div className='container'>
+      <SEO 
+        title="Login - Fashion Cloth Website"
+        description="Login to your Fashion Cloth Website account to access your profile and shopping features."
+        keywords="login, account, fashion, clothing, apparel"
+      />
       <div className="row my-5">
         <div className="col-md-6 mx-auto">
           <div className="card shadow-sm">
