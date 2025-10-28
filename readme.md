@@ -1,4 +1,4 @@
-# Advanced Features Implementation Summary
+
 
 This document summarizes all the advanced features that have been implemented for the Fashion Cloth Website.
 
